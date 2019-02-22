@@ -50,9 +50,12 @@ param (
     # Now lets use the encoding method to return the un-encrypted byte array
     $bytes = $enc.GetBytes($Body) 
     # Tplink uses a dummy first 4 bytes so we just pass four 0's back
-    for($i = 0; $i -lt 4;$i++){
+    for($i = 0; $i -lt 3;$i++){
+
         write-output 0
+
     }
+    Write-Output 42
     #The first encryption key for the bxor method is 171
     [byte]$key = 171
     # Loop through the byte array then use the next character byte value as the key
